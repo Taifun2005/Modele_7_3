@@ -30,27 +30,21 @@ class WordsFinder:
 
     def find(self, word):                   # Методы find(),       print(s.find('foo'))
         slovar = self.get_all_words().values()
-        stroka = str(*slovar)
+        stroka = list(*slovar)
         coint = 0
-        print(slovar)
-        print(type(slovar))
-        for i range(len(stroka)):
-            if stroka != word:
-                coint += 1
-
-        # slovar = *slovar
-        # count = stroka.find(word.lower())
-        # print(slovar)
-        # print(type(slovar))
-        # print(word.lower())
-        return count
+        for i in range(len(stroka)):
+            coint += 1
+            if stroka[i] == word.lower():
+                flaf = coint
+                break
+        return f"{self.name}: {flaf}"
 
 
     def count(self, word):            # Метод count()  print(s.count('oo'))
         slovar = self.get_all_words().values()
         stroka = str(slovar)
         count = stroka.count(word.lower())
-        return count
+        return f"{self.name}: {count}"
 
 
 finder2 = WordsFinder('test_file.txt')
